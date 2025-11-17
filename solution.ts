@@ -1,6 +1,8 @@
 // Problem 1
 
-const formatValue = (value: number | string | boolean):number | string | boolean => {
+const formatValue = (
+  value: number | string | boolean
+): number | string | boolean => {
   if (typeof value === "number") {
     value = value * 10;
   } else if (typeof value === "string") {
@@ -13,7 +15,7 @@ const formatValue = (value: number | string | boolean):number | string | boolean
 
 // Problem 2
 
-const getLength = (value: string | any[]):number => {
+const getLength = (value: string | any[]): number => {
   let size: number = 0;
   if (typeof value === "string") {
     size = value.length;
@@ -27,7 +29,7 @@ const getLength = (value: string | any[]):number => {
 };
 
 // Problem 4
- 
+
 const filterByRating = (
   arr: Array<{ title: string; rating: number }>
 ): Array<object> => {
@@ -36,4 +38,22 @@ const filterByRating = (
   );
   return filteredArray;
 };
+
+// Problem 5
+
+const filterActiveUsers = (
+  arr: Array<{
+    id: number;
+    name: string;
+    email: string;
+    isActive: boolean;
+  }>
+): Array<object> => {
+  let activeUsers = arr.filter(
+    (user: { id: number; name: string; email: string; isActive: boolean }) =>
+      user.isActive === true
+  );
+  return activeUsers;
+};
+
 

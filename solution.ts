@@ -91,7 +91,7 @@ const getUniqueValues = (value1: any[], value2: any[]): any[] => {
     }
   }
   for (let i = 0; i < value2.length; i++) {
-    if (!uniqueArray.includes(value1[i])) {
+    if (!uniqueArray.includes(value2[i])) {
       uniqueArray.push(value2[i]);
     }
   }

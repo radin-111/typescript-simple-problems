@@ -56,4 +56,20 @@ const filterActiveUsers = (
   return activeUsers;
 };
 
+// Problem 7
 
+const getUniqueValues = (value1: any[], value2: any[]): any[] => {
+  let uniqueArray: any[] = [];
+
+  for (let i = 0; i < value1.length; i++) {
+    if (!uniqueArray.includes(value1[i])) {
+      uniqueArray.push(value1[i]);
+    }
+  }
+  for (let i = 0; i < value2.length; i++) {
+    if (!uniqueArray.includes(value2[i])) {
+      uniqueArray.push(value2[i]);
+    }
+  }
+  return uniqueArray;
+};

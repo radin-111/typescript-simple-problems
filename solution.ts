@@ -28,6 +28,20 @@ const getLength = (value: string | any[]): number => {
   return size;
 };
 
+// Problem 3
+class Person {
+  name: string;
+  age: number;
+  constructor(fullName: string, givenAge: number) {
+    this.name = fullName;
+    this.age = givenAge;
+  }
+
+  getDetails(){
+    return `'Name: ${this.name}, Age: ${this.age}'`
+  }
+}
+
 // Problem 4
 
 const filterByRating = (
@@ -56,6 +70,24 @@ const filterActiveUsers = (
   return activeUsers;
 };
 
+// Problem 6
+
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+const printBookDetails = (info: Book) => {
+  const { author, isAvailable, publishedYear, title } = info;
+  console.log(
+    `Title: ${title}, Author: ${author}, Published: ${publishedYear}, Available: ${
+      isAvailable ? "Yes" : "No"
+    }`
+  );
+};
+
 // Problem 7
 
 const getUniqueValues = (value1: any[], value2: any[]): any[] => {
@@ -73,3 +105,15 @@ const getUniqueValues = (value1: any[], value2: any[]): any[] => {
   }
   return uniqueArray;
 };
+
+// Problem 8
+
+const calculateTotalPrice = (
+  arr: Array<{
+    name: string;
+    price: number;
+    quantity: number;
+    discount?: number;
+  }>
+) => {};
+

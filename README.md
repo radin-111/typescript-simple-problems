@@ -32,6 +32,45 @@ function loopForever(): never {
 ```
 
 ---
+# Blog 2:
 
-**Author:** Sheikh Radin
-**Topic:** TypeScript Type Guide
+## Union এবং Intersection
+
+TypeScript এ union ও intersection দুটি খুব গুরুত্বপূর্ণ বিষয়।
+
+## Union এর ব্যবহার
+
+Union সাধারণত এমন সময় ব্যবহার করা হয় যখন একটি variable এর একাধিক type থাকতে পারে।
+এক্ষেত্রে `|` ব্যবহার করা হয়।
+
+```ts
+function printId(id: string | number) {
+  console.log("Your ID is:", id);
+}
+
+printId(101);
+printId("A102");
+```
+
+## Intersection এর ব্যবহার
+
+Intersection দিয়ে মূলত দুটি type কে এক করা হয়। এক্ষেত্রে TypeScript এ অনেক সময় type alias এর ব্যবহার প্রিলক্ষিত হয়।
+
+```ts
+type Person = {
+  name: string;
+};
+
+type Employee = {
+  employeeId: number;
+};
+
+type Staff = Person & Employee;
+
+const staff1: Staff = {
+  name: "Radin",
+  employeeId: 101
+};
+```
+
+এক্ষেত্রে `&` চিহ্ন ব্যবহারের মাধ্যমে দুটি type কে এক করা হয়েছে।

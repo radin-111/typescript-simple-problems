@@ -1,5 +1,3 @@
-// Problem 1
-
 const formatValue = (
   value: number | string | boolean
 ): number | string | boolean => {
@@ -12,8 +10,6 @@ const formatValue = (
   }
   return value;
 };
-
-// Problem 2
 
 const getLength = (value: string | any[]): number => {
   let size: number = 0;
@@ -28,7 +24,6 @@ const getLength = (value: string | any[]): number => {
   return size;
 };
 
-// Problem 3
 class Person {
   name: string;
   age: number;
@@ -37,23 +32,19 @@ class Person {
     this.age = givenAge;
   }
 
-  getDetails(){
-    return `'Name: ${this.name}, Age: ${this.age}'`
+  getDetails() {
+    return `'Name: ${this.name}, Age: ${this.age}'`;
   }
 }
 
-// Problem 4
-
 const filterByRating = (
   arr: Array<{ title: string; rating: number }>
-): Array<object> => {
+): Array<{ title: string; rating: number }> => {
   const filteredArray = arr.filter(
     (item: { title: string; rating: number }) => item.rating >= 4
   );
   return filteredArray;
 };
-
-// Problem 5
 
 const filterActiveUsers = (
   arr: Array<{
@@ -62,15 +53,18 @@ const filterActiveUsers = (
     email: string;
     isActive: boolean;
   }>
-): Array<object> => {
+): Array<{
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+}> => {
   let activeUsers = arr.filter(
     (user: { id: number; name: string; email: string; isActive: boolean }) =>
       user.isActive === true
   );
   return activeUsers;
 };
-
-// Problem 6
 
 interface Book {
   title: string;
@@ -88,8 +82,6 @@ const printBookDetails = (info: Book) => {
   );
 };
 
-// Problem 7
-
 const getUniqueValues = (value1: any[], value2: any[]): any[] => {
   let uniqueArray: any[] = [];
 
@@ -99,14 +91,12 @@ const getUniqueValues = (value1: any[], value2: any[]): any[] => {
     }
   }
   for (let i = 0; i < value2.length; i++) {
-    if (!uniqueArray.includes(value2[i])) {
+    if (!uniqueArray.includes(value1[i])) {
       uniqueArray.push(value2[i]);
     }
   }
   return uniqueArray;
 };
-
-// Problem 8
 
 const calculateTotalPrice = (
   arr: Array<{
@@ -115,5 +105,16 @@ const calculateTotalPrice = (
     quantity: number;
     discount?: number;
   }>
-) => {};
+): number => {
+  let totalPrice: number = arr.reduce((sum, item) => {
+    let { price, quantity, discount } = item;
+    let subtotal: number = price * quantity;
+    if (discount) {
+      const discountedPrice: number = subtotal * (discount / 100);
+      subtotal = subtotal - discountedPrice;
+    }
+    return sum + subtotal;
+  }, 0);
 
+  return totalPrice;
+};
